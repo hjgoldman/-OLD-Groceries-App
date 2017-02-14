@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2A827F1E53B6F200232E21 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A827E1E53B6F200232E21 /* UIColor+Additions.m */; };
 		3A5F16071E522EF800C03DE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F16061E522EF800C03DE8 /* main.m */; };
 		3A5F160A1E522EF800C03DE8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F16091E522EF800C03DE8 /* AppDelegate.m */; };
 		3A5F16101E522EF800C03DE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F160E1E522EF800C03DE8 /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A2A827D1E53B6F200232E21 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
+		3A2A827E1E53B6F200232E21 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		3A5F16021E522EF800C03DE8 /* Groceries App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Groceries App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5F16061E522EF800C03DE8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A5F16081E522EF800C03DE8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A2A82801E53B6F900232E21 /* UIColor+Additions */ = {
+			isa = PBXGroup;
+			children = (
+				3A2A827D1E53B6F200232E21 /* UIColor+Additions.h */,
+				3A2A827E1E53B6F200232E21 /* UIColor+Additions.m */,
+			);
+			name = "UIColor+Additions";
+			sourceTree = "<group>";
+		};
 		3A5F15F91E522EF800C03DE8 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +85,7 @@
 		3A5F16041E522EF800C03DE8 /* Groceries App */ = {
 			isa = PBXGroup;
 			children = (
+				3A2A82801E53B6F900232E21 /* UIColor+Additions */,
 				3A5F162C1E523E5E00C03DE8 /* Classes */,
 				3A5F162B1E523E4B00C03DE8 /* Shopping Categories */,
 				3A5F163C1E526D4F00C03DE8 /* Category Details */,
@@ -202,6 +215,7 @@
 			files = (
 				3A5F16351E52528300C03DE8 /* AddNewItemViewController.m in Sources */,
 				3A5F160A1E522EF800C03DE8 /* AppDelegate.m in Sources */,
+				3A2A827F1E53B6F200232E21 /* UIColor+Additions.m in Sources */,
 				3A5F163B1E5255FF00C03DE8 /* GroceryItem.m in Sources */,
 				3A5F162F1E523F8F00C03DE8 /* AddNewShoppingCategoryViewController.m in Sources */,
 				3A5F16071E522EF800C03DE8 /* main.m in Sources */,
@@ -366,6 +380,7 @@
 				3A5F161B1E522EF800C03DE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -18,11 +18,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor blueColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.5373f
+                                                                  green:0.6824f
+                                                                   blue:0.8824f
+                                                                  alpha:1.0f]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil]];
     
-    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+   // [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UIToolbar appearance] setBackgroundColor:[UIColor colorWithRed:0.5373f
+                                                               green:0.6824f
+                                                                blue:0.8824f
+                                                               alpha:1.0f]];
+
 
     
     return YES;

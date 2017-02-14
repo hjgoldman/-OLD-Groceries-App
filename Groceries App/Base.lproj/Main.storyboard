@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -59,16 +60,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyK-D9-5da">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyK-D9-5da">
                                 <rect key="frame" x="75" y="240" width="224" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wU-hK-NT7">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wU-hK-NT7">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="done" systemItem="save" id="bIL-gu-7zd">
                                         <connections>
@@ -84,6 +83,14 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oQa-7y-X9T" firstAttribute="top" secondItem="gyK-D9-5da" secondAttribute="bottom" constant="397" id="2a7-Zf-TbG"/>
+                            <constraint firstItem="gyK-D9-5da" firstAttribute="leading" secondItem="uTt-Sd-2vG" secondAttribute="leadingMargin" constant="59" id="HaI-e2-OIg"/>
+                            <constraint firstItem="0wU-hK-NT7" firstAttribute="centerX" secondItem="gyK-D9-5da" secondAttribute="centerX" id="JZx-aD-2E6"/>
+                            <constraint firstAttribute="trailing" secondItem="0wU-hK-NT7" secondAttribute="trailing" id="MyS-eH-eZF"/>
+                            <constraint firstItem="0wU-hK-NT7" firstAttribute="top" secondItem="KQ3-aH-9az" secondAttribute="bottom" id="baX-Wb-gtT"/>
+                            <constraint firstItem="0wU-hK-NT7" firstAttribute="leading" secondItem="uTt-Sd-2vG" secondAttribute="leading" id="m9O-TL-oAY"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addNewTextField" destination="gyK-D9-5da" id="UH3-jr-xfa"/>
@@ -127,7 +134,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="koJ-0y-FkK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2265" y="333"/>
+            <point key="canvasLocation" x="2270" y="226"/>
         </scene>
         <!--Add New Item View Controller-->
         <scene sceneID="ZfT-5D-I3C">
@@ -141,9 +148,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kF5-bF-eNr">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kF5-bF-eNr">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="save" id="eFf-bm-6WZ">
                                         <connections>
@@ -157,15 +163,22 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ht0-Te-B4f">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ht0-Te-B4f">
                                 <rect key="frame" x="75" y="240" width="224" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kF5-bF-eNr" secondAttribute="trailing" id="PbF-hQ-j4P"/>
+                            <constraint firstItem="kF5-bF-eNr" firstAttribute="top" secondItem="9HH-CA-gpx" secondAttribute="bottom" id="aBf-6F-fcx"/>
+                            <constraint firstItem="kF5-bF-eNr" firstAttribute="leading" secondItem="UW7-mb-Elw" secondAttribute="leading" id="eoa-F6-wij"/>
+                            <constraint firstItem="Ht0-Te-B4f" firstAttribute="leading" secondItem="UW7-mb-Elw" secondAttribute="leadingMargin" constant="59" id="gBA-X1-u8O"/>
+                            <constraint firstItem="kF5-bF-eNr" firstAttribute="centerX" secondItem="Ht0-Te-B4f" secondAttribute="centerX" id="ksz-om-qgG"/>
+                            <constraint firstItem="Cw7-as-qEo" firstAttribute="top" secondItem="Ht0-Te-B4f" secondAttribute="bottom" constant="397" id="wE6-Df-O14"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addNewItemTextField" destination="Ht0-Te-B4f" id="FWa-se-ldP"/>
@@ -173,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfr-rV-s9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3350" y="-206"/>
+            <point key="canvasLocation" x="3087" y="-206"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hK3-hW-5Fl">

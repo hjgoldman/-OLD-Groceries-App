@@ -30,6 +30,8 @@
     GroceryCategory *groceryCategory = [[GroceryCategory alloc] init];
     groceryCategory.title = self.addNewTextField.text;
     
+    groceryCategory.groceryItems = [NSMutableArray array];
+    
     [self.delegate addNewCategoryDidSave:groceryCategory];
     
     [self dismissViewControllerAnimated:YES completion:nil]; //closed the screen

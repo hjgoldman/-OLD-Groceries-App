@@ -31,7 +31,6 @@
     
     [self.delegate addNewItemDidSave:groceryItem];
     
-    
     [self dismissViewControllerAnimated:YES completion:nil]; //closed the screen
 }
 

@@ -46,7 +46,9 @@
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
     AddNewItemViewController *addNewItemViewController = segue.destinationViewController;
     addNewItemViewController.delegate = self;
+    
 }
 @end

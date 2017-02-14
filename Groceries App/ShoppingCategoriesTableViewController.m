@@ -18,7 +18,7 @@
     [super viewDidLoad];
 
     self.shoppingCategories = [NSMutableArray array];
-
+    
     
     ///Adding object into the array from another class
     
@@ -37,6 +37,12 @@
 
     GroceryCategory *category2 = [[GroceryCategory alloc]init];
     category2.title =@"Whole Foods";
+    
+    GroceryItem *wholeFoodsItem1 = [[GroceryItem alloc]init];
+    wholeFoodsItem1.title = @"Overpriced stuff";
+    
+    category2.groceryItems = [NSMutableArray array];
+    [category2.groceryItems addObject:wholeFoodsItem1];
     
     [self.shoppingCategories addObject:category1];
     [self.shoppingCategories addObject:category2];
@@ -59,26 +65,17 @@
     if([segue.identifier isEqualToString:@"ShowCategory"]){
         //showing the grocery items
         
-        
-        
-        
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-        
+
         GroceryCategory *groceryCategory = self.shoppingCategories[indexPath.row];
-        
         CategoryDetailsTableViewController *categoryDetailsTableViewController = segue.destinationViewController;
-        
         categoryDetailsTableViewController.selectedGroceryCategory = groceryCategory;
-        
-        
-        
         
     } else if ([segue.identifier isEqualToString:@"AddCategory"]){
         
         AddNewShoppingCategoryViewController *addNewShoppingCategoryViewController = segue.destinationViewController;
         addNewShoppingCategoryViewController.delegate = self;
     };
-    
     
 }
 
