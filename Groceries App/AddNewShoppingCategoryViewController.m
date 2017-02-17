@@ -27,6 +27,7 @@
 }
 
 -(IBAction)addNewCategoryButtonPressed{
+    
     GroceryCategory *groceryCategory = [[GroceryCategory alloc] init];
     groceryCategory.title = self.addNewTextField.text;
     

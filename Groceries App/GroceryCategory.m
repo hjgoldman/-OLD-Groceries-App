@@ -10,6 +10,19 @@
 
 @implementation GroceryCategory
 
+-(void) encodeWithCoder:(NSCoder *)encoder{
+    
+    [encoder encodeObject:self.title forKey:@"title"];
+    [encoder encodeObject:self.groceryItems forKey:@"groceryItems"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder{
+    self = [super init];
+    self.title = [coder decodeObjectForKey:@"title"];
+    self.groceryItems = [coder decodeObjectForKey:@"groceryItems"];
+    return self;
+}
+
 
 
 @end

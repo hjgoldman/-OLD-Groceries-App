@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iOK-F4-PXp" id="rSB-De-dWC">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -37,6 +37,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groceries" id="hvG-91-qt0">
+                        <barButtonItem key="leftBarButtonItem" title="Load - DB" id="7qB-Jl-nlm">
+                            <connections>
+                                <action selector="loadDeBug" destination="ki2-XY-L3x" id="B4M-9P-FuQ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="siO-qs-50F">
                             <connections>
                                 <segue destination="5ha-TQ-q5K" kind="presentation" identifier="AddCategory" id="91a-oj-1xd"/>
@@ -121,7 +126,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FiP-AO-B3C" id="naP-nk-Pcj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -193,7 +198,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="74Y-To-8yQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ttn-dJ-RmW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ttn-dJ-RmW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

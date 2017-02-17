@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GroceryCategory : NSObject
+@interface GroceryCategory : NSObject<NSCoding>
 
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic, strong) NSMutableArray *groceryItems;
+
 
 @end

@@ -18,11 +18,14 @@
     [super viewDidLoad];
     
     self.title = self.selectedGroceryCategory.title;
+    
 }
 
 
 -(void) addNewItemDidSave:(GroceryItem *)groceryItem{
     [self.selectedGroceryCategory.groceryItems addObject:groceryItem];
+    
+    //reloads the table
     [self.tableView reloadData];
 }
 

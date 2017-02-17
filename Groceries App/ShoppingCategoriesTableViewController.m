@@ -16,46 +16,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.shoppingCategories = [NSMutableArray array];
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *groceryData = (NSData *) [userDefaults objectForKey:@"groceryData"];
+    NSMutableArray *groceryCategories = (NSMutableArray *) [NSKeyedUnarchiver unarchiveObjectWithData:groceryData];
+    self.shoppingCategories = groceryCategories;
     
-    ///Adding object into the array from another class
-    
-    GroceryCategory *category1 = [[GroceryCategory alloc]init];
-    category1.title = @"HEB";
-    
-    GroceryItem *groceryItem1 =[[GroceryItem alloc]init];
-    groceryItem1.title =@"Chips";
-    
-    GroceryItem *groceryItem2 =[[GroceryItem alloc]init];
-    groceryItem2.title =@"Beer";
-    
-    category1.groceryItems = [NSMutableArray array];
-    [category1.groceryItems addObject:groceryItem1];
-    [category1.groceryItems addObject:groceryItem2];
-
-    GroceryCategory *category2 = [[GroceryCategory alloc]init];
-    category2.title =@"Whole Foods";
-    
-    GroceryItem *wholeFoodsItem1 = [[GroceryItem alloc]init];
-    wholeFoodsItem1.title = @"Overpriced stuff";
-    
-    category2.groceryItems = [NSMutableArray array];
-    [category2.groceryItems addObject:wholeFoodsItem1];
-    
-    [self.shoppingCategories addObject:category1];
-    [self.shoppingCategories addObject:category2];
-    
+    if (groceryCategories == nil){
+        self.shoppingCategories = [NSMutableArray array];
+    }
 }
 
+-(IBAction)loadDeBug{
+    [self loadGroceryData];
+}
 
-#pragma mark - Table view data source
+-(void) loadGroceryData{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *groceryData = (NSData *) [userDefaults objectForKey:@"groceryData"];
+    NSMutableArray *groceryCategories = (NSMutableArray *) [NSKeyedUnarchiver unarchiveObjectWithData:groceryData];
+    self.shoppingCategories = groceryCategories;
+}
 
+-(void) saveGroceryData{
+    NSData *groceryData = [NSKeyedArchiver archivedDataWithRootObject:self.shoppingCategories];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:groceryData forKey:@"groceryData"];
+    [userDefaults synchronize];
+}
 
 
 -(void) addNewCategoryDidSave:(GroceryCategory *)categoryName{
     [self.shoppingCategories addObject:categoryName];
+    
+    //Saves the array into the userDefaults
+    [self saveGroceryData];
+    
+    //reloads the table
     [self.tableView reloadData];
 }
 

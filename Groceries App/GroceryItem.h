@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GroceryItem : NSObject
+@interface GroceryItem : NSObject<NSCoding>
 
 @property (nonatomic,copy) NSString *title;
 

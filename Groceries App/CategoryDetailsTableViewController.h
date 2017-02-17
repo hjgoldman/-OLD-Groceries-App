@@ -10,8 +10,10 @@
 #import "ShoppingCategoriesTableViewController.h"
 #import "AddNewItemViewController.h"
 
+
 @interface CategoryDetailsTableViewController : UITableViewController<AddNewItemDelegate>
 
 @property (nonatomic,strong) GroceryCategory *selectedGroceryCategory;
+
 
 @end
