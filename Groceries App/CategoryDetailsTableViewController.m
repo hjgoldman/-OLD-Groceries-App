@@ -19,6 +19,10 @@
     
     self.title = self.selectedGroceryCategory.title;
     
+    //Editing table
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.navigationItem.rightBarButtonItem = [self editButtonItem];
+    
 }
 
 
@@ -54,4 +58,34 @@
     addNewItemViewController.delegate = self;
     
 }
+
+//Editing table
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.selectedGroceryCategory.groceryItems removeObjectAtIndex:indexPath.row];
+        
+        [self.tableView reloadData];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    NSObject *moveCells = self.selectedGroceryCategory.groceryItems[sourceIndexPath.row];
+    [self.selectedGroceryCategory.groceryItems removeObjectAtIndex:sourceIndexPath.row];
+    [self.selectedGroceryCategory.groceryItems insertObject:moveCells atIndex:destinationIndexPath.row];
+    
+    [self.tableView reloadData];
+    
+}
+
 @end

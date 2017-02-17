@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,18 +37,22 @@
                             <outlet property="delegate" destination="ki2-XY-L3x" id="cbE-73-kTt"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Groceries" id="hvG-91-qt0">
-                        <barButtonItem key="leftBarButtonItem" title="Load - DB" id="7qB-Jl-nlm">
-                            <connections>
-                                <action selector="loadDeBug" destination="ki2-XY-L3x" id="B4M-9P-FuQ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="siO-qs-50F">
-                            <connections>
-                                <segue destination="5ha-TQ-q5K" kind="presentation" identifier="AddCategory" id="91a-oj-1xd"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add" id="siO-qs-50F">
+                                <connections>
+                                    <segue destination="5ha-TQ-q5K" kind="presentation" identifier="AddCategory" id="91a-oj-1xd"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Load" id="7qB-Jl-nlm">
+                                <connections>
+                                    <action selector="loadDeBug" destination="ki2-XY-L3x" id="B4M-9P-FuQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFQ-Pe-8xm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
