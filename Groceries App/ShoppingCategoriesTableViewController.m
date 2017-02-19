@@ -16,42 +16,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self loadGroceryData];
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *groceryData = (NSData *) [userDefaults objectForKey:@"groceryData"];
-    NSMutableArray *groceryCategories = (NSMutableArray *) [NSKeyedUnarchiver unarchiveObjectWithData:groceryData];
-    self.shoppingCategories = groceryCategories;
-    
-    if (groceryCategories == nil){
-        self.shoppingCategories = [NSMutableArray array];
+    if (shoppingCategories == nil){
+        shoppingCategories = [NSMutableArray array];
     }
     
     //Editing table
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    self.navigationItem.leftBarButtonItem = [self editButtonItem];
+    self.navigationItem.rightBarButtonItem = [self editButtonItem];
 }
 
+
+//For testing
 -(IBAction)loadDeBug{
     [self loadGroceryData];
 }
+//For testing
+
+-(IBAction)saveDeBug{
+    [self saveGroceryData];
+}
+
+
 
 -(void) loadGroceryData{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSData *groceryData = (NSData *) [userDefaults objectForKey:@"groceryData"];
     NSMutableArray *groceryCategories = (NSMutableArray *) [NSKeyedUnarchiver unarchiveObjectWithData:groceryData];
-    self.shoppingCategories = groceryCategories;
+    shoppingCategories = groceryCategories;
 }
 
 -(void) saveGroceryData{
-    NSData *groceryData = [NSKeyedArchiver archivedDataWithRootObject:self.shoppingCategories];
+    
+    NSData *groceryData = [NSKeyedArchiver archivedDataWithRootObject:shoppingCategories];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:groceryData forKey:@"groceryData"];
     [userDefaults synchronize];
 }
 
 
+
+
 -(void) addNewCategoryDidSave:(GroceryCategory *)categoryName{
-    [self.shoppingCategories addObject:categoryName];
+    [shoppingCategories addObject:categoryName];
     
     //Saves the array into the userDefaults
     [self saveGroceryData];
@@ -68,7 +77,7 @@
         
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
 
-        GroceryCategory *groceryCategory = self.shoppingCategories[indexPath.row];
+        GroceryCategory *groceryCategory = shoppingCategories[indexPath.row];
         CategoryDetailsTableViewController *categoryDetailsTableViewController = segue.destinationViewController;
         categoryDetailsTableViewController.selectedGroceryCategory = groceryCategory;
         
@@ -85,13 +94,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.shoppingCategories.count;
+    return shoppingCategories.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShoppingCategoriesCell" forIndexPath:indexPath];
-    GroceryCategory *groceryCatagory = self.shoppingCategories[indexPath.row];
+    GroceryCategory *groceryCatagory = shoppingCategories[indexPath.row];
     cell.textLabel.text = groceryCatagory.title;
     
     return cell;
@@ -106,7 +115,7 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [self.shoppingCategories removeObjectAtIndex:indexPath.row];
+        [shoppingCategories removeObjectAtIndex:indexPath.row];
         
         [self.tableView reloadData];
         [self saveGroceryData];
@@ -119,9 +128,9 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     
-    NSObject *moveCells = self.shoppingCategories[sourceIndexPath.row];
-    [self.shoppingCategories removeObjectAtIndex:sourceIndexPath.row];
-    [self.shoppingCategories insertObject:moveCells atIndex:destinationIndexPath.row];
+    NSObject *moveCells = shoppingCategories[sourceIndexPath.row];
+    [shoppingCategories removeObjectAtIndex:sourceIndexPath.row];
+    [shoppingCategories insertObject:moveCells atIndex:destinationIndexPath.row];
     
     [self.tableView reloadData];
 

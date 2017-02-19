@@ -13,7 +13,8 @@
 #import "GroceryItem.h"
 
 @interface ShoppingCategoriesTableViewController : UITableViewController<AddNewCategoryDelegate>
-
-@property (nonatomic, strong) NSMutableArray *shoppingCategories;
+{
+NSMutableArray *shoppingCategories;
+}
 
 @end

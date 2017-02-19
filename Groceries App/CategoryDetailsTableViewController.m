@@ -22,15 +22,18 @@
     //Editing table
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.navigationItem.rightBarButtonItem = [self editButtonItem];
-    
 }
 
 
 -(void) addNewItemDidSave:(GroceryItem *)groceryItem{
     [self.selectedGroceryCategory.groceryItems addObject:groceryItem];
     
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     //reloads the table
     [self.tableView reloadData];
+    
+    
 }
 
 
